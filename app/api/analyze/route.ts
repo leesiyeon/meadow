@@ -3,6 +3,10 @@ import { analyzeUrl } from '@/lib/analyzer';
 import { calculateScore, getTotalIssues } from '@/lib/scoring';
 import { translateViolations } from '@/lib/translator';
 
+// Vercel serverless function configuration
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: NextRequest) {
   try {
     // 요청 파싱

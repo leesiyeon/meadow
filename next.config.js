@@ -4,13 +4,10 @@ const nextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       // playwright-core와 관련 패키지들을 외부 패키지로 처리
-      config.externals = [
-        ...config.externals,
-        {
-          'playwright-core': 'commonjs playwright-core',
-          '@sparticuz/chromium': 'commonjs @sparticuz/chromium',
-        },
-      ];
+      config.externals.push({
+        'playwright-core': 'commonjs playwright-core',
+        '@sparticuz/chromium': 'commonjs @sparticuz/chromium',
+      });
     }
     return config;
   },

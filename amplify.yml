@@ -4,7 +4,8 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        - npx playwright install --with-deps chromium || echo "Playwright install failed, continuing..."
+        # postinstall script will handle playwright installation
+        - echo "Playwright installation completed via postinstall"
     build:
       commands:
         - npm run build
@@ -16,3 +17,4 @@ frontend:
     paths:
       - node_modules/**/*
       - .next/cache/**/*
+      - ~/.cache/ms-playwright/**/*

@@ -24,12 +24,20 @@ export async function analyzeUrl(url: string): Promise<{
     throw new Error('유효하지 않은 URL입니다');
   }
 
-  // Vercel serverless 환경 감지
-  const isProduction = process.env.VERCEL === '1';
+  // Serverless 환경 감지 (Vercel 또는 AWS Amplify)
+  const isVercel = process.env.VERCEL === '1';
+  const isAmplify = !!process.env.AWS_EXECUTION_ENV || !!process.env.AWS_REGION;
+  const isProduction = isVercel || isAmplify;
 
   const browser = await chromium.launch({
-    args: isProduction ? chromiumPkg.args : [],
-    executablePath: isProduction
+    args: isVercel ? chromiumPkg.args : isAmplify ? [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-gpu',
+      '--single-process',
+    ] : [],
+    executablePath: isVercel
       ? await chromiumPkg.executablePath()
       : undefined,
     headless: true,

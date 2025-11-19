@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Amplify Hosting을 위한 설정
+  output: 'standalone',
   webpack: (config, { isServer }) => {
     if (isServer) {
       // playwright-core와 관련 패키지들을 외부 패키지로 처리

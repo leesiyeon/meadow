@@ -1,0 +1,137 @@
+{
+  "color-contrast": {
+    "description": "텍스트와 배경의 명도 대비가 4.5:1 미만입니다",
+    "solution": "전경색과 배경색의 명도 대비를 높이세요",
+    "wcag": "WCAG 2.1 Level AA - 1.4.3",
+    "codeExample": {
+      "before": "<p style=\"color: #777; background: #fff;\">회색 텍스트 (대비 4.47:1)</p>",
+      "after": "<p style=\"color: #595959; background: #fff;\">진한 회색 텍스트 (대비 7:1)</p>"
+    }
+  },
+  "image-alt": {
+    "description": "이미지에 대체 텍스트가 없습니다",
+    "solution": "img 태그에 alt 속성을 추가하세요",
+    "wcag": "WCAG 2.1 Level A - 1.1.1",
+    "codeExample": {
+      "before": "<img src=\"logo.png\">",
+      "after": "<img src=\"logo.png\" alt=\"회사 로고\">"
+    }
+  },
+  "button-name": {
+    "description": "버튼에 접근 가능한 이름이 없습니다",
+    "solution": "버튼에 텍스트나 aria-label을 추가하세요",
+    "wcag": "WCAG 2.1 Level A - 4.1.2",
+    "codeExample": {
+      "before": "<button><i class=\"icon-close\"></i></button>",
+      "after": "<button aria-label=\"닫기\"><i class=\"icon-close\"></i></button>"
+    }
+  },
+  "label": {
+    "description": "폼 요소에 레이블이 없습니다",
+    "solution": "input에 연결된 label을 추가하세요",
+    "wcag": "WCAG 2.1 Level A - 4.1.2",
+    "codeExample": {
+      "before": "<input type=\"text\" name=\"email\">",
+      "after": "<label for=\"email\">이메일</label>\n<input type=\"text\" id=\"email\" name=\"email\">"
+    }
+  },
+  "link-name": {
+    "description": "링크에 접근 가능한 이름이 없습니다",
+    "solution": "링크에 텍스트나 aria-label을 추가하세요",
+    "wcag": "WCAG 2.1 Level A - 4.1.2",
+    "codeExample": {
+      "before": "<a href=\"/home\"><i class=\"icon-home\"></i></a>",
+      "after": "<a href=\"/home\" aria-label=\"홈으로 이동\"><i class=\"icon-home\"></i></a>"
+    }
+  },
+  "html-has-lang": {
+    "description": "HTML 요소에 lang 속성이 없습니다",
+    "solution": "html 태그에 lang 속성을 추가하세요 (예: <html lang=\"ko\">)",
+    "wcag": "WCAG 2.1 Level A - 3.1.1",
+    "codeExample": {
+      "before": "<!DOCTYPE html>\n<html>\n  <head>",
+      "after": "<!DOCTYPE html>\n<html lang=\"ko\">\n  <head>"
+    }
+  },
+  "document-title": {
+    "description": "페이지에 제목이 없습니다",
+    "solution": "head 태그 안에 <title> 요소를 추가하세요",
+    "wcag": "WCAG 2.1 Level A - 2.4.2",
+    "codeExample": {
+      "before": "<head>\n  <meta charset=\"UTF-8\">\n</head>",
+      "after": "<head>\n  <meta charset=\"UTF-8\">\n  <title>페이지 제목</title>\n</head>"
+    }
+  },
+  "aria-allowed-attr": {
+    "description": "요소에 허용되지 않는 ARIA 속성이 사용되었습니다",
+    "solution": "해당 요소에 맞는 ARIA 속성만 사용하세요",
+    "wcag": "WCAG 2.1 Level A - 4.1.2",
+    "codeExample": {
+      "before": "<div aria-placeholder=\"검색어 입력\">",
+      "after": "<input type=\"text\" aria-placeholder=\"검색어 입력\">"
+    }
+  },
+  "list": {
+    "description": "리스트 구조가 잘못되었습니다",
+    "solution": "ul, ol 태그 안에는 li 태그만 직접 포함되어야 합니다",
+    "wcag": "WCAG 2.1 Level A - 1.3.1",
+    "codeExample": {
+      "before": "<ul>\n  <div>항목 1</div>\n  <div>항목 2</div>\n</ul>",
+      "after": "<ul>\n  <li>항목 1</li>\n  <li>항목 2</li>\n</ul>"
+    }
+  },
+  "heading-order": {
+    "description": "제목 순서가 잘못되었습니다",
+    "solution": "제목은 순차적으로 사용하세요 (h1 → h2 → h3)",
+    "wcag": "WCAG 2.1 Level AA - 1.3.1",
+    "codeExample": {
+      "before": "<h1>페이지 제목</h1>\n<h3>섹션 제목</h3>",
+      "after": "<h1>페이지 제목</h1>\n<h2>섹션 제목</h2>"
+    }
+  },
+  "aria-required-attr": {
+    "description": "필수 ARIA 속성이 누락되었습니다",
+    "solution": "해당 역할에 필요한 ARIA 속성을 추가하세요",
+    "wcag": "WCAG 2.1 Level A - 4.1.2",
+    "codeExample": {
+      "before": "<div role=\"checkbox\">동의</div>",
+      "after": "<div role=\"checkbox\" aria-checked=\"false\">동의</div>"
+    }
+  },
+  "landmark-one-main": {
+    "description": "페이지에 main 랜드마크가 없거나 여러 개입니다",
+    "solution": "페이지에 <main> 요소를 하나만 포함하세요",
+    "wcag": "WCAG 2.1 Level AA - 1.3.1",
+    "codeExample": {
+      "before": "<div class=\"content\">\n  페이지 내용\n</div>",
+      "after": "<main>\n  페이지 내용\n</main>"
+    }
+  },
+  "region": {
+    "description": "페이지 콘텐츠가 랜드마크 안에 포함되어 있지 않습니다",
+    "solution": "콘텐츠를 의미 있는 랜드마크(header, nav, main, footer 등) 안에 배치하세요",
+    "wcag": "WCAG 2.1 Level AA - 1.3.1",
+    "codeExample": {
+      "before": "<div>헤더</div>\n<div>내용</div>",
+      "after": "<header>헤더</header>\n<main>내용</main>"
+    }
+  },
+  "form-field-multiple-labels": {
+    "description": "폼 필드에 여러 개의 레이블이 연결되어 있습니다",
+    "solution": "각 폼 필드는 하나의 레이블만 가져야 합니다",
+    "wcag": "WCAG 2.1 Level A - 3.3.2",
+    "codeExample": {
+      "before": "<label for=\"name\">이름</label>\n<label for=\"name\">성명</label>\n<input id=\"name\">",
+      "after": "<label for=\"name\">이름</label>\n<input id=\"name\">"
+    }
+  },
+  "duplicate-id": {
+    "description": "중복된 ID 속성이 있습니다",
+    "solution": "각 ID는 페이지 내에서 고유해야 합니다",
+    "wcag": "WCAG 2.1 Level A - 4.1.1",
+    "codeExample": {
+      "before": "<div id=\"content\">...</div>\n<div id=\"content\">...</div>",
+      "after": "<div id=\"content-1\">...</div>\n<div id=\"content-2\">...</div>"
+    }
+  }
+}

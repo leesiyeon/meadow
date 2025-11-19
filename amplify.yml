@@ -4,8 +4,6 @@ frontend:
     preBuild:
       commands:
         - npm ci
-        # postinstall script will handle playwright installation
-        - echo "Playwright installation completed via postinstall"
     build:
       commands:
         - npm run build
@@ -17,4 +15,3 @@ frontend:
     paths:
       - node_modules/**/*
       - .next/cache/**/*
-      - ~/.cache/ms-playwright/**/*

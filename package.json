@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postinstall": "playwright install chromium || echo 'Playwright install skipped'"
+    "lint": "next lint"
   },
   "dependencies": {
     "@sparticuz/chromium": "^141.0.0",

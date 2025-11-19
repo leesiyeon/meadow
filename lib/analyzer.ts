@@ -30,14 +30,8 @@ export async function analyzeUrl(url: string): Promise<{
   const isProduction = isVercel || isAmplify;
 
   const browser = await chromium.launch({
-    args: isVercel ? chromiumPkg.args : isAmplify ? [
-      '--no-sandbox',
-      '--disable-setuid-sandbox',
-      '--disable-dev-shm-usage',
-      '--disable-gpu',
-      '--single-process',
-    ] : [],
-    executablePath: isVercel
+    args: isProduction ? chromiumPkg.args : [],
+    executablePath: isProduction
       ? await chromiumPkg.executablePath()
       : undefined,
     headless: true,

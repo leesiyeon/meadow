@@ -119,15 +119,13 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google AdSense - 승인 후 활성화 */}
-        {/*
+        {/* Google AdSense */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1014042036964348"
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
-        */}
       </head>
       <body>
         <Script

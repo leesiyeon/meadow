@@ -1,4 +1,5 @@
-import { chromium } from 'playwright';
+import { chromium } from 'playwright-core';
+import chromiumPkg from '@sparticuz/chromium';
 import * as axe from 'axe-core';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -23,7 +24,14 @@ export async function analyzeUrl(url: string): Promise<{
     throw new Error('유효하지 않은 URL입니다');
   }
 
+  // Vercel serverless 환경 감지
+  const isProduction = process.env.VERCEL === '1';
+
   const browser = await chromium.launch({
+    args: isProduction ? chromiumPkg.args : [],
+    executablePath: isProduction
+      ? await chromiumPkg.executablePath()
+      : undefined,
     headless: true,
   });
 
@@ -40,9 +48,17 @@ export async function analyzeUrl(url: string): Promise<{
     });
 
     // axe-core 스크립트 주입
-    const axePath = path.join(process.cwd(), 'node_modules', 'axe-core', 'axe.min.js');
-    const axeSource = fs.readFileSync(axePath, 'utf8');
-    await page.addScriptTag({ content: axeSource });
+    if (isProduction) {
+      // Vercel 환경에서는 CDN 사용
+      await page.addScriptTag({
+        url: 'https://cdnjs.cloudflare.com/ajax/libs/axe-core/4.10.0/axe.min.js'
+      });
+    } else {
+      // 로컬 개발 환경에서는 파일에서 직접 로드
+      const axePath = path.join(process.cwd(), 'node_modules', 'axe-core', 'axe.min.js');
+      const axeSource = fs.readFileSync(axePath, 'utf8');
+      await page.addScriptTag({ content: axeSource });
+    }
 
     // 접근성 분석 실행
     const results = await page.evaluate(() => {

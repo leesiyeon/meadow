@@ -30,7 +30,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">제1조 (목적)</h2>
             <p className="text-gray-700 leading-relaxed">
-              본 약관은 Meadow(이하 "서비스")가 제공하는 웹 접근성 자동 진단 서비스의 이용과 관련하여
+              본 약관은 Meadow(이하 &quot;서비스&quot;)가 제공하는 웹 접근성 자동 진단 서비스의 이용과 관련하여
               서비스와 이용자 간의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.
             </p>
           </section>

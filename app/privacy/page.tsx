@@ -30,7 +30,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-gray-900 mb-4">1. 개인정보의 수집 및 이용 목적</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Meadow(이하 "서비스")는 기본적으로 개인정보를 수집하지 않습니다.
+              Meadow(이하 &quot;서비스&quot;)는 기본적으로 개인정보를 수집하지 않습니다.
               사용자가 입력한 웹사이트 URL은 일시적으로 분석에만 사용되며, 서버에 저장되지 않습니다.
             </p>
             <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4">

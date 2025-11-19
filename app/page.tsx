@@ -5,6 +5,7 @@ import AnalysisForm from '@/components/AnalysisForm';
 import ScoreDisplay from '@/components/ScoreDisplay';
 import ImpactSummary from '@/components/ImpactSummary';
 import ViolationList from '@/components/ViolationList';
+import Footer from '@/components/Footer';
 import { getIssuesByImpact } from '@/lib/scoring';
 import type { AnalysisResult } from '@/lib/types';
 
@@ -61,6 +62,7 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <Footer />
       </main>
     );
   }
@@ -222,6 +224,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }

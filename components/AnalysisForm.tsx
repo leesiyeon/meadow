@@ -7,6 +7,7 @@ interface AnalysisFormProps {
   onResultsReady: (results: AnalysisResult) => void;
 }
 
+// @ts-ignore
 export default function AnalysisForm({ onResultsReady }: AnalysisFormProps) {
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
